@@ -50,4 +50,5 @@ build:
     - docker:dind
   script:
     - cd app1 && docker build -t app1 .
-    - cd app1 && docker build -t app2 .
+    - pwd
+    - cd app2 && docker build -t app2 .
