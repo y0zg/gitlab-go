@@ -1,5 +1,5 @@
 variables:
-  PACKAGE_PATH: /go/src/gitlab.com/hypnoglow/example-go-docker-gitlab
+  PACKAGE_PATH: /go/src/gitlab.com/
 
 stages:
   - dep
