@@ -49,4 +49,5 @@ build:
   services:
     - docker:dind
   script:
-    - docker build -t app .
+    - cd app1 && docker build -t app1 .
+    - cd app1 && docker build -t app2 .
