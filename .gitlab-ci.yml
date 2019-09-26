@@ -1,5 +1,5 @@
 variables:
-  PACKAGE_PATH: /go/src/gitlab.com/
+  PACKAGE_PATH: /go/src/gitlab.com
 
 stages:
   - dep
@@ -45,10 +45,9 @@ build:
   stage: build
   dependencies:
     - dep
-  image: docker:17
+  image: docker:18
   services:
     - docker:dind
   script:
-    - cd app1 && docker build -t app1 .
-    - pwd
-    - cd ../app2 && docker build -t app2 .
+    - docker build -t app1 app1
+    - docker build -t app2 app2
