@@ -4,10 +4,13 @@ WORKDIR /go/src/app2
 
 COPY . .
 
-RUN go build -o app2
+RUN apk add git && \
+    go get -d -v ./... && \
+    go get -v -u github.com/gorilla/mux && \
+    go build -o app2
+    
+FROM alpine
 
-FROM alpine:3.7
+COPY --from=build /go/src/app2/app2 /
 
-COPY --from=build /go/src/app/app2 /usr/local/bin/app2
-
-ENTRYPOINT ["/usr/local/bin/app2"]
+CMD ["./app1"]
